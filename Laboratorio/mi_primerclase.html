@@ -1,0 +1,38 @@
+<html>
+	<head>
+	<style>
+.cuadro {
+	color: white;
+	border: 2px dashed yellow;
+	text-align: center;
+	margin-bottom: 2px;
+}
+.subtitulo {
+	font-size: 15pt;
+	font-family: Arial;
+	border: 1px solid lightgreen;
+}
+
+	</style>
+	
+	<script>
+		function saludar(){
+			var nom=document.getElementById("nombre");
+			var mensaje="Hola" + nom.value + "!";
+			alert(mensaje);
+		}
+	
+	</script>
+	
+	</head>
+	<body style="background-color: black;">
+		<button onclick="saludar();" >saludar</button>
+		<input type="text" value="UCSP" id="nombre" />
+		<div class="cuadro">
+	Hello Word!
+		</div>
+		<div class="cuadro subtitulo">
+	Juan perez
+		</div>
+	</body>
+</html>
