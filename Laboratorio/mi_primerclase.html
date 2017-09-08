@@ -19,7 +19,7 @@
 		function saludar(){
 			var nom=document.getElementById("nombre");
 			var mensaje="Hola" + nom.value + "!";
-			alert(mensaje);
+			cuadro.innerText=mensaje;//alert(mensaje);
 		}
 	
 	</script>
@@ -31,8 +31,8 @@
 		<div class="cuadro">
 	Hello Word!
 		</div>
-		<div class="cuadro subtitulo">
-	Juan perez
+		<div class="cuadro subtitulo" id="cuadro">
+	Gustavo
 		</div>
 	</body>
 </html>

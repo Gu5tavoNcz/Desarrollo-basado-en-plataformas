@@ -1,0 +1,54 @@
+<html>
+	<head>
+	<style>
+.cuadro {
+	color: white;
+	border: 2px dashed yellow;
+	text-align: center;
+	margin-bottom: 2px;
+}
+.subtitulo {
+	font-size: 15pt;
+	font-family: Arial;
+	border: 1px solid lightgreen;
+}
+
+	</style>
+	
+	<script>
+		function sumar(){
+		
+			var a=Integer.parseInt (numero1);
+			var b=Integer.parseInt (numero2);
+			var mensaje=numero_1+numero_2;
+			//var mensaje="La suma es: " + a+b "!";
+			alert(mensaje);
+			//cuadro.innerText=mensaje;//alert(mensaje);
+		}
+		
+		/*
+		function restar(){
+			var a=document.getElementById("numero_1");
+			var b=document.getElementById("numero_2");
+			var mensaje="La resta es: " + a-b "!";
+			alert(mensaje);
+			//cuadro.innerText=mensaje;//alert(mensaje);
+		}
+		*/
+	</script>
+	
+	</head>
+	<body style="background-color: black;">
+		
+		<input type="int" value="" id="numero_1" />
+		<input type="int" value="" id="numero_2" />
+		<button onclick="sumar();" >sumar</button>
+		<button onclick="restar();" >restar</button>
+		<div class="cuadro">
+	Hello Word!
+		</div>
+		<div class="cuadro subtitulo" id="cuadro">
+	Gustavo
+		</div>
+	</body>
+</html>
