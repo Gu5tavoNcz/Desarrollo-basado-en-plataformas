@@ -1,0 +1,61 @@
+<html>
+	<head>
+	<style>
+.cuadro {
+	color: white;
+	border: 2px dashed yellow;
+	text-align: center;
+	margin-bottom: 2px;
+}
+.subtitulo {
+	font-size: 15pt;
+	font-family: Arial;
+	border: 1px solid lightgreen;
+}
+
+	</style>
+	
+	<script>
+		function sumar(){
+			var f=function(a,b) {return a+b};
+			ejecutar(f);
+		}
+		function restar(){
+			ejecutar(function(a,b) {return a-b});
+		}
+		function multiplica(a,b){
+			return a*b;
+		}
+		function multiplicar(){
+			ejecutar(multiplica);
+		}
+		function divide(a,b){
+			return a/b;
+		}
+		function dividir(){
+			ejecutar(divide);
+		}
+		function ejecutar(operacion){
+			var a=document.getElementById("a1");
+			var b=document.getElementById("b1");
+			var x=parseInt(a.value);
+			var y=parseInt(b.value);
+			var c=operacion(x,y);
+			var a=document.getElementById("r");
+			r.innerText="\nEl resultado es " + c;
+		}
+		
+	
+	</script>
+	
+	</head>
+	<body>
+		<input type = "text" id = "a1"/>
+		<input type = "text" id = "b1"/>
+		<button onclick="sumar();" >+</button>
+		<button onclick="restar();" >-</button>
+		<button onclick="multiplicar();" >*</button>
+		<button onclick="dividir();" >/</button>
+		<div id="r"></div>
+	</body>
+</html>
