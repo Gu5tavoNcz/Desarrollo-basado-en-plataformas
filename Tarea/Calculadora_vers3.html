@@ -1,0 +1,92 @@
+<html>
+ <head>
+ <script>
+
+var cadena="";
+var temp="";
+var opers="";
+//var c=document.getElementById("cajaText");
+function FunGeneral(ope)
+{
+  var num1=parseInt(cadena);
+  c=document.getElementById("cajaText");
+  c.value="";
+  temp=cadena;
+  cadena="";
+  opers=ope;
+
+}
+
+function Restar(a, b) { return a-b;}
+
+function Sumar(a,b) {return a+b;}
+
+function Multiplicar(a,b) {return a*b;}
+
+function Dividir(a,b) {return a/b;}
+
+function Ejecutar(operacion)
+{
+  c=document.getElementById("cajaText");
+  cadena+=operacion;
+  c.value=cadena;
+}
+function Igual()
+{
+  var  result=opers(temp,cadena);
+  c=document.getElementById("cajaText");
+  c.value=result;
+}
+function Limpiar()
+{
+  var cadena="0";
+  var temp="0";
+  var opers="0";
+  //var a=document.getElementsById()
+}
+
+function Calculator() {
+
+}
+
+//Calculator.prototype.respuesta = 0;
+/*
+Calculator.prototype.sumar = function(a, b) {
+  return a + b;
+}
+*/
+Calculator.prototype.restar = Restar;
+
+Calculator.prototype.createButtons = function() {
+  var div = document.getElementById("calc");
+  for (var i=0; i<10; i++) {
+    var btn = document.createElement("BUTTON");
+    btn.setAttribute("value",i);
+	btn.onclick = function(event) {
+    Ejecutar(this.value);
+	};
+	btn.innerHTML = i;
+	div.appendChild(btn);
+  }
+}
+
+function main() {
+  var calc = new Calculator();
+  calc.createButtons();
+}
+ </script>
+ </head>
+ <body onload="main()">
+ <div id="calc" style="border: 1px solid black;">
+   <input type="text" id="cajaText">
+   <button type="button" name="button" onclick="FunGeneral(Sumar);"id="+">+</button>
+   <button type="button" name="button" onclick="FunGeneral(Restar);"id="-">-</button>
+   <button type="button" name="button" onclick="FunGeneral(Multiplicar);"id="*">*</button>
+   <button type="button" name="button" onclick="FunGeneral(Dividir);"id="/">/</button>
+   <button type="button" name="button" onclick="FunGeneral(Limpiar);" id="C">C</button>
+   <button type="button" name="button" id=".">.</button>
+   <button type="button" name="button" onclick="Igual();"id="=">=</button>
+
+ </div>
+ </body>
+</html>
