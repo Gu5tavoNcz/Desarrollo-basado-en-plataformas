@@ -5,7 +5,6 @@
 var cadena="";
 var temp="";
 var opers="";
-//var c=document.getElementById("cajaText");
 
 function Calculator(operation) {
   var num1=parseInt(cadena);
@@ -15,13 +14,6 @@ function Calculator(operation) {
   cadena="";
   opers=operation;
 }
-
-//Calculator.prototype.respuesta = 0;
-/*
-Calculator.prototype.sumar = function(a, b) {
-  return a + b;
-}
-*/
 
 
 function Restar(a, b) { return a-b;}
@@ -61,7 +53,7 @@ Calculator.prototype.restar = Restar;
 Calculator.prototype.createButtons = function() {
   var div = document.getElementById("calc");
   for (var i=0; i<10; i++) {
-    System.out.println(<br>);
+    //System.out.print(<br>);
     var btn = document.createElement("BUTTON");
     btn.setAttribute("value",i);
 	btn.onclick = function(event) {
