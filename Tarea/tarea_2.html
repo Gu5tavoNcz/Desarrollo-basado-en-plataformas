@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>TAREA DBP</title>
+  <script>
+var alumno = {
+ "nombre" : "Gustavo",
+ "edad" : 22,
+ "cursos": [
+   {
+   "codigo" : "D15c3t45",
+	 "nombre" : "Discretas"
+   },
+   {
+   "codigo" : "B453",
+	 "nombre" : "Base de Datos"
+   },
+   {
+   "codigo" : "D3s4rr0ll0",
+   "nombre" : "Desarrolla basado en plaformas"
+    }
+ ],
+ "direccion" : {
+   "tipo": "Calle"
+ }
+};
+var i_index;
+function verResultado() {
+  var out = document.getElementById("output");
+  var table = document.createElement("TABLE");
+  var trNombre = document.createElement("TR");
+  var trEdad = document.createElement("TR");
+  var trCursos = document.createElement("TR");
+
+  table.border = "1";
+
+  var td1 = document.createElement("TD");
+  var td2 = document.createElement("TD");
+  td1.innerText = "Nombre:";
+  td2.innerText = alumno.nombre;
+  trNombre.appendChild(td1);
+  trNombre.appendChild(td2);
+
+  td1 = document.createElement("TD");
+  td2 = document.createElement("TD");
+  td1.innerText = "Edad:";
+  td2.innerText = alumno.edad;
+  trEdad.appendChild(td1);
+  trEdad.appendChild(td2);
+
+  td1 = document.createElement("TD");
+  td2 = document.createElement("TD");
+  td1.innerText = "Cursos:";
+
+  var ulCursos = document.createElement("UL");
+  cargarDatos();
+
+
+  td2.appendChild(ulCursos);
+  trCursos.appendChild(td1);
+  trCursos.appendChild(td2);
+
+  table.appendChild(trNombre);
+  table.appendChild(trEdad);
+  table.appendChild(trCursos);
+  out.innerHTML = "";
+  out.appendChild(table);
+
+  function cargarDatos(){
+
+  for (var i=0; i<alumno.cursos.length; i++) {
+     var liCurso = document.createElement("LI");
+     var x=document.createElement("SPAN");
+     var c_curso=document.createElement("SPAN");
+
+     c_curso.innerHTML= alumno.cursos[i].nombre;
+     c_curso.title=i;
+     x.title=i;
+     c_curso.onclick = function(event) {
+       show_curso(this.title);
+
+     };
+
+    x.innerHTML="&#120";
+    x.onclick = function(event) {
+      delete_m("curso-open"+this.title);
+
+    };
+    liCurso.appendChild(c_curso);
+    liCurso.appendChild(x);
+
+    ulCursos.appendChild(liCurso);
+    c_curso.id="curso-box"+i;
+    liCurso.id = "curso-open" + i;
+    x.id="curso-delete" +i;
+  }
+  }
+
+}
+
+function delete_m(id) {
+  //alert(id);
+
+  var c=document.getElementById(id);
+  c.classList.add('close');
+  c.classList.remove('open');
+}
+function show_curso(id){
+  i_index=id;
+  open();
+  //document.getElementById('').setAttribute("class","content-cursos");
+  document.getElementById('codigo').value=alumno.cursos[id].codigo;
+  document.getElementById('nombre').value=alumno.cursos[id].nombre;
+}
+function  open() {
+  var cc=document.getElementById('content-cursos');
+  cc.classList.add('open');
+  cc.classList.remove('close');
+}
+function close_m(){
+
+  var cc=document.getElementById('content-cursos');
+  cc.classList.remove('open');
+  cc.classList.add('close');
+}
+function guardar_m() {
+  var n1=document.getElementById('codigo').value;
+  var n2=document.getElementById('nombre').value;
+   var cont=document.getElementById("curso-box"+i_index);
+  alumno.cursos[i_index].codigo=n1;
+  alumno.cursos[i_index].nombre=n2;
+  cont.innerHTML=alumno.cursos[i_index].nombre;
+}
+
+  </script>
+  <style media="screen">
+    span{
+       //background-color: red;
+       //float:right;
+       padding: 0px 5px;
+    }
+    #content-cursos{
+       //background: green;
+       //height: 200px;
+     }
+     .close{
+         display: none;
+       }
+     .open{
+         display: block;
+       }
+  </style>
+ </head>
+ <body>
+   <button onclick="verResultado();">Ver Resultado</button>
+   <div id="output" style="margin: 10px; padding: 5px;"></div>
+   <div id="content-cursos" class="close">
+     <div class="input-contents">
+       Codigo : <input type="text" name="" value="" id="codigo"><br>
+       Nombre :<input type="text" name="" value="" id="nombre">
+     </div>
+     <div class="input-buttons">
+       <input type="button" name="" value="Guardar" onclick="guardar_m();">
+       <input type="button" name="" value="Cancelar" onclick="close_m();">
+     </div>
+
+   </div>
+ </body>
+</html>
