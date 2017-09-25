@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <ttle>Opciones multiples HTML</title>
+  </head>
+  <body>
+    <form method="get" action="www.google.com.pe">
+      Elije solo una opcion
+      <select name="Primera_entrada">
+        <optgroup label="Entradas de texto">
+          <option value="Linea">Entrada de linea</option>
+          <option value="contrasenia">Entrada de contrasenia</option>
+          <option value="Multi" selected>Enetrada multi-linea</option>
+          <option value="Usuario">Ingrese un usuario</option>
+        </optgroup>
+
+        <optgroup label="Cursos">
+          <option>Matematica</<option>
+          <option>Discretas</option>
+          <option>Desarrollo basado en plataforas</option>
+        </optgroup>
+      </select>
+      <br/>
+      <br/>
+      Elije tantas opciones como quieras en las casillas de verificacion:<br/>
+      <select name="Segunda_entrada" multiple="multiple">
+        <optgroup label="Entradas numericas">
+          <option>Notas</option>
+          <option>Tareas</option>
+          <option>Sumas</option>
+          <option>Restas</option>
+          <option>Operaciones</option>
+        </optgroup>
+        <optgroup label="Entradas osio" multiple="multiple">
+          <option>Mujeres</option>
+          <option>Alcohol</option>
+          <option>Drogas</option>
+        </optgroup>
+
+        <optgroup label="Opciones">
+          <option selected="selected">Casillas de verificación</option>
+          <option>Botones radio</option>
+          <option>Listas</option>
+        </optgroup>
+
+      </select>
+        </form>
+        <form method="post" action="accion.php" enctype="multipart/form-data">
+          Ingresa el archivo:
+          <input name="imagen" type="file" />
+        </form>
+      </body>
+</html>
