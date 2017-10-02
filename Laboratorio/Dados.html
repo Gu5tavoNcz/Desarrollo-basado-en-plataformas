@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Juego de Dados</title>
+  <style>
+td {
+  width: 30px;
+  height: 30px;
+}
+
+button {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+  </style>
+  <script>
+function lanzar() {
+  var valor = Math.floor(Math.random()*6+1);
+  var valorDos = Math.floor(Math.random()*6+1);
+  var dado = {
+    1: [4],
+    2: [0, 8],
+    3: [0, 4, 8],
+    4: [0, 2, 6, 8],
+    5: [0, 2, 4, 6, 8],
+    6: [0, 2, 3, 5, 6, 8],
+  };
+  var dadoDos = {
+    1: [14],
+    2: [10, 18],
+    3: [10, 14, 18],
+    4: [10, 12, 16, 18],
+    5: [10, 12, 14, 16, 18],
+    6: [10, 12, 13, 15, 16, 18],
+  };
+  pintar(dado[valor],0,9);
+  pintar(dadoDos[valorDos],10,19);
+  if(valor>valorDos){
+    alert("EL jugador UNO ha ganado");
+  }
+  else if(valor<valorDos){
+    alert("EL jugador DOS ha ganado");
+  }
+  else {
+    alert("Empate entre los dos jugadores");
+  }
+}
+
+
+function pintar(items,inicio,fin) {
+  for (var i=inicio; i<fin; i++) {
+    var celda = document.getElementById(i + "");
+    celda.innerHTML = "";
+  }
+  for (var i=0; i<items.length; i++) {
+    var celda = document.getElementById(items[i] + "");
+    celda.innerHTML = "*";
+
+  }
+}
+  </script>
+</head>
+<body>
+  <button onclick="lanzar();">Lanzar ambos dados</button>
+  <p>Jugador uno</p>
+  <table border="1px">
+    <tr>
+      <td id="0"></td>
+      <td id="1"></td>
+      <td id="2"></td>
+    </tr>
+    <tr>
+      <td id="3"></td>
+      <td id="4"></td>
+      <td id="5"></td>
+    </tr>
+    <tr>
+      <td id="6"></td>
+      <td id="7"></td>
+      <td id="8"></td>
+    </tr>
+  </table>
+  <br/><p>Jugador dos</p><br/>
+  <table border="1px">
+    <tr>
+      <td id="10"></td>
+      <td id="11"></td>
+      <td id="12"></td>
+    </tr>
+    <tr>
+      <td id="13"></td>
+      <td id="14"></td>
+      <td id="15"></td>
+    </tr>
+    <tr>
+      <td id="16"></td>
+      <td id="17"></td>
+      <td id="18"></td>
+    </tr>
+  </table>
+</body>
+</html>
